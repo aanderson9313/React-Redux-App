@@ -5,6 +5,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { beerReducer as reducer } from "./reducers/beerReducer";
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import BeersList from './components/BeersList';
+
 
 
 const store = createStore(reducer, applyMiddleware(thunk));
@@ -18,6 +20,7 @@ function App() {
         Know Your Craft Beers! 
         </h1>
         <BeerForm />
+        <BeersList />
       </div>
     </Provider>
   );

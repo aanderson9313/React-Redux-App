@@ -1,9 +1,10 @@
-import {GET_DATA} from '../actions';
+import {FETCH_DATA, UPDATE_BEERS, SET_ERROR} from '../actions';
 
 const initialState = {
     
-    Beers: [],
-    isFetchingData: false
+    beers: [],
+    isFetchingData: false,
+    error: ''
 };
 
 
@@ -11,11 +12,25 @@ export const beerReducer =(state = initialState, action) => {
 
     switch (action.type) {
 
-        case GET_DATA:
+        case FETCH_DATA:
             return {
                 ...state,
 
-                isFetchingData: true
+                isFetchingData: true,
+                beers: []
+            };
+        case UPDATE_BEERS:
+            return {
+                ...state,
+                beers: action.payload,
+                isFetchingData: false
+            };
+
+        case SET_ERROR:
+            return {
+                ...state,
+                isFetchingData: false,
+                error: action.payload
             };
         default: 
             return state;

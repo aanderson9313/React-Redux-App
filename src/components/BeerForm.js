@@ -9,7 +9,7 @@ const BeerForm = props => {
         e.preventDefault();
         props.getData();
 
-    }
+    };
 
     return (
         <> 
